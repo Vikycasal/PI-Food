@@ -149,7 +149,7 @@ router.post('/recipe', async (req, res) => {
                 }
         })
         newRecipe.addDietType(dietDb);
-        res.status(200).send("Recipe succesfully created!");
+        res.status(200).send("Recipe successfully created!");
       } catch (error) {
                 console.log(error)
         }

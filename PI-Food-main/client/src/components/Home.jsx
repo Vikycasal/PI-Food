@@ -3,14 +3,34 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; //uso hooks
 import { getAllRecipes } from "../actions";
 import { Link } from "react-router-dom";
-import { Card } from "./Card";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Card from "./Card";
+import Paged from "./Paged";
 
 export default function Home () {
+//esto lo hago basicamente para ir despachando mis acciones y usarlas
+    const dispatch = useDispatch(); 
+    const allRecipes = useSelector((state) => state.recipes)
+//esto es lo mismo que hacer el map.state.to.props
+//tener en cuenta como tengo escrito el estado asi no me cometa errores al traermelos
+//vamos a crear el paginado
+    const [currentPage, setCurrentPage] = useState(1)
+    const [recipesPerPage, setRecipesPerPage] = useState(9)
+//guardame en un estado local la pagina actual, y una que me lo setee, por eso es 1
+//en otro estado local, cuantos quiero que aparezcan, quiero 9 segun readme
+    const indexOfLastRecipe = currentPage * recipesPerPage // 9
+    const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage // 0
+//y lo ultimo que voy a hacer 
+    const currentRecipes = allRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+    //los personajes que van a estar en la pagina actual
+    //guarda todas las recetas que tengo por paginas
+    //el slice agarra un arreglo y o va cortando dependiendo lo que yo voy pasandole por parametro
 
-    const dispatch = useDispatch(); //esto lo hago basicamente para ir despachando mis acciones y usarlas
-    // const allRecipes = useSelector((state) => state.recipe)
-
+ //y por ultimo creo la constante del paginado
+ //esta es la que me va a ayudar al renderizado
+    const paginado = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
 
     //vamos a traernos las recetas del estado
     //para eso utilizamos un useEffect
@@ -51,11 +71,24 @@ export default function Home () {
                   <option value="whole 30">Whole 30</option>
       </select>
       </div>
+       <Paged recipesPerPage={recipesPerPage} 
+              allRecipes={allRecipes.length} 
+              paginado={paginado} />
       <Link to = "./recipe">Create Recipe</Link>
       <button onClick={e => {handleClick(e)}}>
           Refresh all Recipes
       </button>
+      <span>
+        {currentRecipes?.map(element => {
+            return(   
+         <div>
+          <NavLink to={'/recipes/' + element.id}>
+               <Card image={element.image} name={element.name} diet={element.createdInDb ? element.DietTypes.map((dt) => dt.name) : element.diets}  key={element.id}/>  
+          </NavLink>
+         </div>
+            );
+         })}
+      </span> 
       </div>
   )
-
 }

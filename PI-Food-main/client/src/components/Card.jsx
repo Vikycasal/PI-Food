@@ -12,10 +12,8 @@ export default function Card({image, name, diet}){
               <h6>{diet ? diet : <h6>Withouth categories</h6>}</h6>
               <div>
                    <h3>Show Recipe</h3>
-              </div> 
-                        
-           </div>
-                        
+              </div>                         
+           </div>   
       </div>
         );
 }

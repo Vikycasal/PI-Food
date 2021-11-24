@@ -13,6 +13,8 @@ function rootReducer (state = initialState, action){
                 recipes: action.payload,
                 allRecipes : action.payload
           }
+          default:
+            return state;
   }
 }
 
