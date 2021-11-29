@@ -1,0 +1,44 @@
+.landing {
+    background-image: url("https://e.rpp-noticias.io/large/2017/07/10/433643_442260.jpg");
+    background-size: cover;
+    height: 750px;
+    margin-top: -30px;
+}
+
+.titulo {
+   font-size: 40px;
+   margin-left: 920px;
+   font-family: "Marker Felt";
+}
+
+.imagenLanding {
+    border-radius: 100px;
+    margin-left: 950px;
+    margin-bottom: 0px;
+}
+
+.descripcion {
+    margin-left: 990px;
+    margin-right: 60px;
+    justify-content: right;
+    font-size: 20px;
+    margin-top: 50px;
+    font-family: "Marker Felt";
+}
+
+.ingreso {
+    border-radius: 5px;
+    background-color: rgba(245, 245, 245, 0.397);
+    margin-top: 50px;
+    margin-left: 950px;
+    font-size: 30px;
+    font-family: "Marker Felt";
+}
+
+.imgFinal {
+    border-radius: 100px;
+    height: 90px;
+    width: 90px;
+    margin-left: 950px;
+    margin-top: 30px;
+}

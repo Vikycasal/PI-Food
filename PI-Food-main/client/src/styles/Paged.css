@@ -1,0 +1,19 @@
+.paginado {
+    justify-content: space-between;
+    font-family: 'Marker Felt';
+    font-size: 10px;
+    display: flex;
+    margin-left: -20px;
+    list-style: none;
+    text-align: center;
+    margin-top: -30px;
+    
+}
+
+.botonP {
+    display: inline-block;
+    background-color: wheat;
+    border-radius: 7px;
+    margin-right: 100px;
+    margin-left: 0px;
+}

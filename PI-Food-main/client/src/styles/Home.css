@@ -1,0 +1,69 @@
+.home {
+    background-image: url("https://i.redd.it/inokox9twzq01.png");
+    margin-top: -1.5%;
+}
+
+.principal {
+    background-color: #e0c8a89a;;
+}
+
+.imgPrincipal {
+    border-radius: 100px;
+    height: 70px;
+    width: 70px;
+    margin-right: 1300px;
+    margin-top: -70px;
+}
+
+.tituloHome {
+   font-family: "Luminari";
+   margin-right: 1000px;
+
+}
+
+.secundaria {
+    margin-top: 1%;
+    justify-content: space-between;
+    display: flex;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+.Filtros {
+    background-color:transparent;
+    justify-content: space-between;
+    display: flex;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.inicio {
+    display: flex;
+    justify-content: center;
+    background-color: #e0c8a89a;
+    margin-left: 400px;
+    margin-right: 400px;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.fotoInicio {
+    height: 250px;
+    width: 250px;
+    border-radius: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tituloInicio {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    justify-content: space-between;
+    margin-right: 170px;
+    margin-left: 170px;
+}

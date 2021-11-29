@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"; //uso hooks
-import { getAllRecipes } from "../actions";
+import { getAllRecipes, orderByScore, orderByAlphabetics, setFilterByDietTypes } from "../actions";
 import { Link } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import Card from "./Card";
 import Paged from "./Paged";
+import SearchBar from "./SearchBar"
+import styles from "../styles/Home.css"
 
 export default function Home () {
 //esto lo hago basicamente para ir despachando mis acciones y usarlas
@@ -32,6 +34,9 @@ export default function Home () {
         setCurrentPage(pageNumber)
     }
 
+    //creo una constante para el uso de los filtros
+const [order, setOrder] = useState("");
+
     //vamos a traernos las recetas del estado
     //para eso utilizamos un useEffect
     useEffect (() => {
@@ -46,20 +51,53 @@ export default function Home () {
        dispatch(getAllRecipes());
     }
 
+//ahora voy a ver los filtros
+//el primero filtro es el ascendente y descendente en este caso por score
+function handleOrderByScore(e){
+    e.preventDefault();
+    dispatch(orderByScore(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordenado ${e.target.value}`);
+}
+
+//vamos a poner el segundo filtro, que me ordene alfabeticamente
+function handleOrderByAlpha(e){
+    e.preventDefault();
+    dispatch(orderByAlphabetics(e.target.value));
+    setCurrentPage(1);
+    setOrder(`Ordenado ${e.target.value}`);
+}
+
+//por ultimo hago el filtro que me hace por tipo de dieta
+function handleFilterByDietType(e){
+                
+    dispatch(setFilterByDietTypes(e.target.value));
+}
+
 //renderizamos la pagina
   return(//empezamos con un div que envuelva todo
-      <div>
-      <h1>All of Our Recipes!</h1>
+      <div className="home">
+       <div className="principal"> 
+      <h1 className="tituloHome">App. Food!</h1>
+      <img className="imgPrincipal" src="https://i.pinimg.com/originals/ca/3c/2c/ca3c2c184846ed27a5637476b3977087.png" alt=""/>
+     <SearchBar className="busqueda"/> 
+       </div>
+      <div className="secundaria">
+      <button onClick={e => {handleClick(e)}}>
+          Refresh all Recipes
+      </button>    
+      <Link to = "./recipe">Create Recipe</Link>
+      </div>
       <div className="Filtros">
-      <select>
+      <select onChange={e => handleOrderByScore(e)}>
                   <option value="asc">Ascendente</option>
                   <option value="desc">Descendente</option>
       </select> 
-      <select>
-                  <option value="A-Z">A-Z</option>
-                  <option value="Z-A">Z-A</option>
+      <select onChange={e => handleOrderByAlpha(e)}>
+                  <option value="A-Z">Order from A to Z</option>
+                  <option value="Z-A">Order from Z to A</option>
       </select> 
-      <select>
+      <select onChange={e => handleFilterByDietType(e)}>
                   <option value="gluten free">Gluten Free</option>
                   <option value="dairy free">Dairy Free</option>
                   <option value="lacto ovo vegetarian">Lacto ovo Vegetarian</option>
@@ -70,15 +108,15 @@ export default function Home () {
                   <option value="fodmap friendly">Fodmap Friendly</option>
                   <option value="whole 30">Whole 30</option>
       </select>
-      </div>
-       <Paged recipesPerPage={recipesPerPage} 
-              allRecipes={allRecipes.length} 
-              paginado={paginado} />
-      <Link to = "./recipe">Create Recipe</Link>
-      <button onClick={e => {handleClick(e)}}>
-          Refresh all Recipes
-      </button>
-      <span>
+      </div>  
+      <nav className="inicio">
+          <img className="fotoInicio"
+           src="https://www.cuerpomente.com/medio/2020/03/20/plato-vegano_3103e3c6_1200x1200.jpg" alt=""/>
+        <h4 className="tituloInicio">It can be said that healthy eating is one that provides the nutrients that the body 
+        needs to maintain the proper functioning of the body, preserve or restore health, minimize the risk of diseases,
+        guarantee reproduction, pregnancy, lactation, development and proper growth.</h4>
+      </nav>    
+      <span className="fotos">
         {currentRecipes?.map(element => {
             return(   
          <div>
@@ -89,6 +127,10 @@ export default function Home () {
             );
          })}
       </span> 
+      <Paged className="paged"
+              recipesPerPage={recipesPerPage} 
+              allRecipes={allRecipes.length} 
+              paginado={paginado} />
       </div>
   )
 }
