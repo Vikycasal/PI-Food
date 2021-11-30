@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {Link, useHistory} from 'react-router-dom';
 import {postRecipe, getRecipeType} from '../actions/index';
 import { useDispatch, useSelector } from "react-redux";
-
+import styles from "../styles/RecipeCreate.css";
 
 function RecipeCreate() {
         const dispatch = useDispatch();
@@ -106,47 +106,47 @@ function handleDelete(el) {
 }
  //lo renderizo       
         return (
-         <div>
+         <div className="crearReceta">
           <div>
             <h1>Create a New Recipe</h1>
-            <form onSubmit={(e) => handleSubmit(e)}>
-            <div>
+            <form className="formulario" onSubmit={(e) => handleSubmit(e)}>
+            <div className="form1">
             <label>Name:</label>
-            <input type="text" value={input.name} name="name"onChange={(e) => handleChange(e)}/>
+            <input className="casilla1" type="text" value={input.name} name="name"onChange={(e) => handleChange(e)}/>
              {
              err.name && (
              <p>{err.name}</p>
                          )
              }
              </div>
-             <div>
+             <div className="form2">
              <label>Score:</label>
-             <input type="text" value={input.score} name="score"onChange={(e) => handleChange(e)}/>
+             <input className="casilla2" type="text" value={input.score} name="score"onChange={(e) => handleChange(e)}/>
              </div>
-             <div>
+             <div className="form3">
              <label>Healthy Level:</label>
-             <input type="text" value={input.healthylevel} name="healthylevel"onChange={(e) => handleChange(e)}/>
+             <input className="casilla3" type="text" value={input.healthylevel} name="healthylevel"onChange={(e) => handleChange(e)}/>
              </div>
-             <div>
+             <div className="form4">
              <label>Resume:</label>
-             <input type="text" value={input.resume} name="resume"onChange={(e) => handleChange(e)}/>
+             <input className="casilla4" type="text" value={input.resume} name="resume"onChange={(e) => handleChange(e)}/>
              {
              err.resume && (
              <p>{err.resume}</p>
                            )
              }
              </div>
-             <div>
+             <div className="form5">
              <label>Steps:</label>
-             <input type="text" value={input.stepByStep} name="stepByStep" onChange={(e) => handleChange(e)}/>
+             <input className="casilla5" type="text" value={input.stepByStep} name="stepByStep" onChange={(e) => handleChange(e)}/>
              </div>
-             <div>
+             <div className="form6">
              <label>Image:</label>
-             <input type="text" value={input.image} name="image" onChange={(e) => handleChange(e)}/>
+             <input className="casilla6" type="text" value={input.image} name="image" onChange={(e) => handleChange(e)}/>
              </div>
-              <div>
+              <div className="form7">
              <label>Type of Diet:</label>
-              <select onChange={(e) => handleSelect(e)} name="diets">
+              <select className="casilla7" onChange={(e) => handleSelect(e)} name="diets">
               {
              types.map((t) => (
              <React.Fragment key={t.id}>
@@ -158,10 +158,10 @@ function handleDelete(el) {
              </div>
              <div>
              <div>
-             <button type="submit" disabled={!btnSend}>Create Recipe</button>
+             <button className="crear" type="submit" disabled={!btnSend}>Create Recipe</button>
              </div>
              <div>
-             <Link to='/home'><button>Go back</button></Link>
+             <Link to='/home'><button className="volver">Go back</button></Link>
              </div>
              </div>
              </form>

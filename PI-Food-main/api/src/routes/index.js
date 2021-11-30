@@ -63,7 +63,6 @@ const getAllRecipie = async () => {
 //NO TOCAR ANDA PERFECTA LA RUTA jaja
 //hago la primera ruta, que me traiga todas las recetas, las pido por query
 router.get('/recipes', async (req, res) => {
-        
         const info = await getAllRecipie();
         const name = req.query.name;
         if(!name){

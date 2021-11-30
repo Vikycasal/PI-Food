@@ -4,9 +4,11 @@
 
 .barra {
     border-radius: 10px;
+    font-size: 15px;
 }
 
 .botonB {
     border-radius: 10px;
     background-color: transparent;
+    font-size: 15px;
 }

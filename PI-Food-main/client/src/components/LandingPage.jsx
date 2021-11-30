@@ -13,7 +13,7 @@ export default function LandingPage(){
              We didn't want to change the foods you
              love, so we changed the way we make them.
              We change the way we make the foods we love
-             to eat. Why Not? Online stores. Our products.
+             to eat. Why Not? Our products.
             </h3>
             <img className="imgFinal" src="https://i.pinimg.com/originals/ca/3c/2c/ca3c2c184846ed27a5637476b3977087.png" alt=""/>
             <Link to = "/home">

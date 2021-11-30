@@ -82,22 +82,28 @@ function handleFilterByDietType(e){
       <img className="imgPrincipal" src="https://i.pinimg.com/originals/ca/3c/2c/ca3c2c184846ed27a5637476b3977087.png" alt=""/>
      <SearchBar className="busqueda"/> 
        </div>
+       <div className="secundaria1">
       <div className="secundaria">
-      <button onClick={e => {handleClick(e)}}>
+      <button className="refresh" onClick={e => {handleClick(e)}}>
           Refresh all Recipes
       </button>    
       <Link to = "./recipe">Create Recipe</Link>
       </div>
+      </div>
+      <div className="Filtros1">
       <div className="Filtros">
-      <select onChange={e => handleOrderByScore(e)}>
+      <select className="filtro1" onChange={e => handleOrderByScore(e)}>
+                  <option value="all">Order by Score</option>
                   <option value="asc">Ascendente</option>
                   <option value="desc">Descendente</option>
       </select> 
-      <select onChange={e => handleOrderByAlpha(e)}>
+      <select className="filtro2" onChange={e => handleOrderByAlpha(e)}>
+                  <option value="all">Order Alphabetically</option>
                   <option value="A-Z">Order from A to Z</option>
                   <option value="Z-A">Order from Z to A</option>
       </select> 
-      <select onChange={e => handleFilterByDietType(e)}>
+      <select className="filtro3" onChange={e => handleFilterByDietType(e)}>
+                  <option value="all">Order by Diet Type</option>
                   <option value="gluten free">Gluten Free</option>
                   <option value="dairy free">Dairy Free</option>
                   <option value="lacto ovo vegetarian">Lacto ovo Vegetarian</option>
@@ -108,14 +114,20 @@ function handleFilterByDietType(e){
                   <option value="fodmap friendly">Fodmap Friendly</option>
                   <option value="whole 30">Whole 30</option>
       </select>
+      </div>
       </div>  
       <nav className="inicio">
           <img className="fotoInicio"
-           src="https://www.cuerpomente.com/medio/2020/03/20/plato-vegano_3103e3c6_1200x1200.jpg" alt=""/>
+           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6Hr5bn_7abkxYEC66gzGJPipt8eqIUC548A&usqp=CAU" alt=""/>
         <h4 className="tituloInicio">It can be said that healthy eating is one that provides the nutrients that the body 
         needs to maintain the proper functioning of the body, preserve or restore health, minimize the risk of diseases,
         guarantee reproduction, pregnancy, lactation, development and proper growth.</h4>
-      </nav>    
+        <img className="logo"
+           src="https://i.pinimg.com/originals/ca/3c/2c/ca3c2c184846ed27a5637476b3977087.png" alt=""/>
+      </nav>   
+      <nav>
+        <img className="imagenRight" src="https://st2.depositphotos.com/7781012/46757/v/1600/depositphotos_467570020-stock-illustration-vegan-food-concept-flat-groceries.jpg" alt=""/>
+          </nav>  
       <span className="fotos">
         {currentRecipes?.map(element => {
             return(   

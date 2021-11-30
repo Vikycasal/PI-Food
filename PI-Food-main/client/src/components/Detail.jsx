@@ -21,15 +21,18 @@ function Detail(props) {
                         {
                recipe.length > 0 ? 
                <div>                                
-                 <h1>{recipe[0].name}</h1>
-                 <img src={recipe[0].image} alt="" width="200px" height="200px"/>
-                 <p>Resume: {recipe[0].resume.replace(/<[^>]*>?/g, '')}</p>
-                 <h5>Type of Diet: {!recipe[0].createdInDb ? recipe[0].diets?.map((diet) => diet) : recipe[0].DietTypes.map((diet) => diet.name)}</h5>
-                 <h5>Score: {recipe[0].score}</h5>
-                 <h5>Healthy Level: {recipe[0].healthylevel}</h5>
-                 <p>Step by Step {!recipe[0].createdInDb ? recipe[0].stepByStep?.map((step) => step) : recipe[0].stepbystep}</p>
+                 <h1 className="nombrereceta">Detail of our Recipes</h1>
+                 <h2 className="nombrereceta">{recipe[0].name}</h2>
+                 <div className="img">
+                 <img className="imgReceta" src={recipe[0].image} alt="" width="300px" height="300px"/>
+                 </div>
+                 <p className="resume">Resume: {recipe[0].resume.replace(/<[^>]*>?/g, '')}</p>
+                 <h5 className="typeofdiet">Type of Diet: {!recipe[0].createdInDb ? recipe[0].diets?.map((diet) => diet) : recipe[0].DietTypes.map((diet) => diet.name)}</h5>
+                 <h5 className="score">Score: {recipe[0].score}</h5>
+                 <h5 className="healthylevel">Healthy Level: {recipe[0].healthylevel}</h5>
+                 <p className="steps">Step by Step {!recipe[0].createdInDb ? recipe[0].stepByStep?.map((step) => step) : recipe[0].stepbystep}</p>
                  <Link to = '/home'>
-                 <button>Go back</button>
+                 <button className="atras">Go back</button>
                  </Link>
                 </div> : <p>Loading....</p>
                         }

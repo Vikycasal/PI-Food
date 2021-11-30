@@ -1,5 +1,57 @@
 .detalle {
     background-image: url("https://i.redd.it/inokox9twzq01.png");
-    height: 750px;
+    height: 800px;
     width: 1450px;
+    margin-top: -20px;
+}
+
+.nombrereceta {
+    font-family: "Marker Felt";
+    margin-left: 250px;
+}
+
+.img {
+    height: 350px;
+    width: 350px;
+    background-color: #e0c8a89a;;
+    margin-left: 100px;
+    border-radius: 90px;
+}
+
+.imgReceta {
+    border-radius: 100px;
+    background-color: #e0c8a89a;
+    margin-right: 980px;
+    margin-top: 20px;
+    margin-left: 30px;
+    
+}
+
+.resume {
+   margin-left: 500px;
+   margin-right: 200px;
+   margin-top: -300px;
+}
+
+.typeofdiet {
+    margin-left: 280px;
+}
+.score {
+    margin-left: 280px;
+}
+
+.healthylevel {
+    margin-left: 280px;
+}
+
+.steps {
+    margin-left: 480px;
+    margin-right: 200px;
+}
+
+.atras {
+    margin-top: 30px;
+    margin-left: 280px;
+    border-radius: 20px;
+    font-size: 15px;
 }

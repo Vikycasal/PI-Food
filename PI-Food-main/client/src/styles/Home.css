@@ -21,43 +21,90 @@
 
 }
 
+.secundaria1 {
+    background-color: rgba(146, 241, 90, 0.589); 
+    height: 30px;
+}
+
 .secundaria {
     margin-top: 1%;
     justify-content: space-between;
     display: flex;
-    margin-left: 15%;
-    margin-right: 10%;
+    margin-left: 11%;
+    margin-right: 5%;
+}
+
+.refresh {
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.Filtros1 {
+    background-color: rgba(146, 241, 90, 0.589); 
 }
 
 .Filtros {
-    background-color:transparent;
     justify-content: space-between;
     display: flex;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.filtro1 {
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.filtro2 {
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.filtro3 {
+    border-radius: 10px;
+    font-size: 15px;
 }
 
 .inicio {
     display: flex;
     justify-content: center;
-    background-color: #e0c8a89a;
-    margin-left: 400px;
+    background-color: #e0c8a879;
+    margin-left: 300px;
     margin-right: 400px;
     border-radius: 30px;
     margin-top: 10px;
 }
 
 .fotoInicio {
-    height: 250px;
-    width: 250px;
-    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+    border-radius: 200px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+    border-radius: 200px;
+    margin-top: 140px;
+    margin-bottom: 10px;
+    margin-right: 30px;
 }
 
 .tituloInicio {
     margin-top: 20px;
     margin-left: 20px;
+}
+
+
+.imagenRight {
+    height: 180px;
+    width: 180px;
+    border-radius: 200px;
+    margin-left : 1200px;
+    margin-top: -300px;
+    margin-bottom: 70px;
 }
 
 .fotos {

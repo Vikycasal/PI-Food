@@ -1,0 +1,102 @@
+.crearReceta {
+    background-image: url("https://i.redd.it/inokox9twzq01.png");
+    height: 750px;
+    margin-top: -20px;
+    font-family: "Marker Felt";
+}
+
+.formulario {
+    background-color: #e0c8a89a;
+    border-radius: 20px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    margin-left: 550px;
+    margin-right: 600px;
+    margin-top: 50px;
+    font-size: 20px;
+    height: 400px;
+    width: 400px;
+}
+
+.form1 {
+    display: grid;
+}
+
+.casilla1 {
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form2 {
+    display: grid;
+}
+
+.casilla2 {
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form3 {
+    display: grid;
+}
+
+.casilla3 {
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form4 {
+    display: grid;
+}
+
+.casilla4 {
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form5 {
+    display: grid;
+}
+
+.casilla5 {
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form6 {
+    display: grid;
+}
+
+.casilla6 {
+    border-radius: 10px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.form7 {
+    display: grid;
+}
+
+.casilla7 {
+    border-radius: 10px;
+    width: 308px;
+    margin-left: 50px;
+    font-size: 15px;
+}
+
+.crear {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.volver {
+    background-color: transparent;
+    border-radius: 10px;
+}
