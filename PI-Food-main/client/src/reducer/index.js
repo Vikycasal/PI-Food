@@ -65,8 +65,8 @@ function rootReducer (state = initialState, action){
               //hago el ultimo filtro que es el que me hago por tipo de dieta
               case "FILTER_BY_DIET_TYPES":
                 const allRecipes = state.allRecipes
-                const dietsAPI = []
-                const dietsDB = []
+                const dietsAPI = [] //traigo los datos de la api
+                const dietsDB = [] //los de la base de datos
                 allRecipes.forEach(e => {
                     if (e.hasOwnProperty('diets') && e.diets.includes(action.payload)) {
                         dietsAPI.push(e)
@@ -78,7 +78,7 @@ function rootReducer (state = initialState, action){
                         dietsDB.push(e)
                     }
                 })
-                const find = dietsAPI.concat(dietsDB)
+                const find = dietsAPI.concat(dietsDB) //concateno los dos
                 if (find.length) {
                     return {
                         ...state,

@@ -94,8 +94,8 @@ function handleFilterByDietType(e){
       <div className="Filtros">
       <select className="filtro1" onChange={e => handleOrderByScore(e)}>
                   <option value="all">Order by Score</option>
-                  <option value="asc">Ascendente</option>
-                  <option value="desc">Descendente</option>
+                  <option value="asc">High Score</option>
+                  <option value="desc">Low Score</option>
       </select> 
       <select className="filtro2" onChange={e => handleOrderByAlpha(e)}>
                   <option value="all">Order Alphabetically</option>

@@ -16,7 +16,7 @@
     margin-right: 600px;
     margin-top: 50px;
     font-size: 20px;
-    height: 400px;
+    height: 600px;
     width: 400px;
 }
 
@@ -91,12 +91,37 @@
     font-size: 15px;
 }
 
+.seleccion {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-right: 120px;
+    list-style-type: none;
+}
+
+.lista {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    list-style-type: none;
+    float: left;
+    text-align: center;
+    width: 5em;
+    margin-left: 150px;
+}
+
+.botonX {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    border-radius: 10px;
+}
+
 .crear {
     background-color: transparent;
     border-radius: 10px;
+    margin-left: 300px;
 }
 
 .volver {
     background-color: transparent;
     border-radius: 10px;
+    margin-left: 300px;
 }

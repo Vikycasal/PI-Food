@@ -6,7 +6,7 @@ import styles from "../styles/RecipeCreate.css";
 
 function RecipeCreate() {
         const dispatch = useDispatch();
-        const types = useSelector((state) => state.recipeTypes)
+        const types = useSelector((state) => state.recipeTypes) //me traigo las recetas usando el useSelector, trayendo el estado
         //el history y history.push, es basicamente lo que hace para redirigirme a la ruta que yo le diga
         const history = useHistory();
         //me creo una constante para poder hacer la validacion
@@ -31,15 +31,15 @@ function RecipeCreate() {
                 }
                 return err;
         }    //tengo que renderizar el formulario y poder guardarlo en un estado
-        const [input, setInput] = useState({
+        const [input, setInput] = useState({ //yo al objeto le paso lo que necesita el post
                 name: "",
                 score:"",
                 healthylevel:"",
                 resume: "",
                 stepbystep:"",
                 image:"",
-                diets:[],
-        })
+                diets:[], //todo esto es lo que me pide el readme
+        }) // diets es un arreglo para poder meterle mas de uno
 //vamos a empezar a aplicar logicas
 //cada vez que yo cambie mis input no se vayan cambiando
 //quiero ir guardando lo que el usuario va a ir escribiendo
@@ -49,7 +49,7 @@ function RecipeCreate() {
                         [e.target.name]: e.target.value,
                 })
                 
-                setErr(validar({
+                setErr(validar({ //esto es para controlar el formulario
                         ...input,
                         [e.target.name]: e.target.value,
                 }))
@@ -57,6 +57,7 @@ function RecipeCreate() {
         }
 
 //cada vez que ejecutes esta funcion, ademas de lo que tiene agregale lo que se va modificando
+//se lo paso a los input, solo los que hay que escribir
 
 //como este se porta de forma distinta tengo que usar otra funcion
 
@@ -92,7 +93,7 @@ function RecipeCreate() {
                         history.push('/home');
                 }
         }
-        
+        //esto lo hago para poder renderizarlas
         useEffect(() => {
                 dispatch(getRecipeType());
         },[dispatch]);
@@ -101,10 +102,13 @@ function RecipeCreate() {
 function handleDelete(el) {
     setInput({
         ...input,
-        types: input.types.filter(t => t !== el)
+        diets: input.diets.filter(t => t !== el)
     })
 }
- //lo renderizo       
+ //lo renderizo  
+ //form es la etiqueta que me deja crear el formulario
+ //label es la casilla que me deja ir creando los ingresos
+ //dentro del label, en un input, pongo lo que necesito     
         return (
          <div className="crearReceta">
           <div>
@@ -119,14 +123,6 @@ function handleDelete(el) {
                          )
              }
              </div>
-             <div className="form2">
-             <label>Score:</label>
-             <input className="casilla2" type="text" value={input.score} name="score"onChange={(e) => handleChange(e)}/>
-             </div>
-             <div className="form3">
-             <label>Healthy Level:</label>
-             <input className="casilla3" type="text" value={input.healthylevel} name="healthylevel"onChange={(e) => handleChange(e)}/>
-             </div>
              <div className="form4">
              <label>Resume:</label>
              <input className="casilla4" type="text" value={input.resume} name="resume"onChange={(e) => handleChange(e)}/>
@@ -136,8 +132,16 @@ function handleDelete(el) {
                            )
              }
              </div>
+             <div className="form2">
+             <label>Score:</label>
+             <input className="casilla2" type="text" value={input.score} name="score"onChange={(e) => handleChange(e)}/>
+             </div>
+             <div className="form3">
+             <label>Healthy Level:</label>
+             <input className="casilla3" type="text" value={input.healthylevel} name="healthylevel"onChange={(e) => handleChange(e)}/>
+             </div>
              <div className="form5">
-             <label>Steps:</label>
+             <label>Step by Step:</label>
              <input className="casilla5" type="text" value={input.stepByStep} name="stepByStep" onChange={(e) => handleChange(e)}/>
              </div>
              <div className="form6">
@@ -149,19 +153,26 @@ function handleDelete(el) {
               <select className="casilla7" onChange={(e) => handleSelect(e)} name="diets">
               {
              types.map((t) => (
-             <React.Fragment key={t.id}>
              <option value={t.name} key={t.id}>{t.name}</option>
-             </React.Fragment>
-                             ))                       
-                   }
+                             ))//tengo que acceder al nombre y a su vez renderizarlo                   
+                   } 
              </select>
-             </div>
-             <div>
              <div>
              <button className="crear" type="submit" disabled={!btnSend}>Create Recipe</button>
              </div>
-             <div>
              <Link to='/home'><button className="volver">Go back</button></Link>
+             <ul className="seleccion">{input.diets.map(el => el + ",")}</ul>
+             </div>
+             <div>
+        <div className="lista">
+             {input.diets && input.diets.map(el => 
+    <div>
+        <p>{el}</p>
+        <button className="botonX" onClick={()=> handleDelete(el)}>X</button>
+        </div>
+   )}
+   </div>
+             <div>
              </div>
              </div>
              </form>
